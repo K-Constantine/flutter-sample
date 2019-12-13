@@ -17,7 +17,7 @@ A fully working sample Flutter app implementation. Give this repo a Star if you 
 - Generic bloc structure
 - RxDart
 - Dependency injection
-- Authentication with JWT and daily renewal
+- Authentication with JWT and daily renewal (simple, no distinct access/refresh or sliding tokens).
 - Themes
 - Multiple languages
 - Named routes
@@ -64,7 +64,7 @@ Use the commands below to build the dependency injection:
 
 ## Routes
 
-Routes must be [instantiated here](https://github.com/cingulo/flutter-sample/blob/1c2c8bbe7fa430e69d9655dc1bde6589c5bc44e5/lib/services/router_service.dart#L18) to be available for nacigation.
+Routes must be [instantiated here](https://github.com/cingulo/flutter-sample/blob/1c2c8bbe7fa430e69d9655dc1bde6589c5bc44e5/lib/services/router_service.dart#L18) to be available for navigation.
 
 ## L10n
 
