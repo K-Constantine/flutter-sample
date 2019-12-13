@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:inject/inject.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../common/disposable.dart';
 import '../../errors/error_handler.dart';
@@ -18,7 +18,6 @@ import 'mapper/auth_token_mapper.dart';
  * Repository uses it for onAuthPermission and onRefreshDaily.
  */
 class AuthRepository with ADisposeMixin {
-  final FlutterSecureStorage _storage = FlutterSecureStorage();
   final String _authTokenKey = 'AuthRepository.authToken';
   final AuthApi _authApi;
 
@@ -72,23 +71,27 @@ class AuthRepository with ADisposeMixin {
   }
 
   Future<AuthPermissionModel> getPermission() async {
-    final isAuthenticated = await _storage.read(key: _authTokenKey) != null;
+    final storage = await SharedPreferences.getInstance();
+    final isAuthenticated = await storage.get(_authTokenKey) != null;
     return AuthPermissionModel(isAuthenticated);
   }
 
   Future<AuthTokenModel> getToken() async {
-    final token = await _storage.read(key: _authTokenKey);
+    final storage = await SharedPreferences.getInstance();
+    final token = await storage.get(_authTokenKey);
     final authTokenModel = AuthTokenMapper.stringToModel(token);
     return authTokenModel;
   }
 
   Future<void> saveToken(AuthTokenModel authTokenModel) async {
-    await _storage.write(key: _authTokenKey, value: authTokenModel.token);
+    final storage = await SharedPreferences.getInstance();
+    await storage.setString(_authTokenKey, authTokenModel.token);
     await _refreshPermission();
   }
 
   Future<void> deleteToken() async {
-    await _storage.delete(key: _authTokenKey);
+    final storage = await SharedPreferences.getInstance();
+    await storage.remove(_authTokenKey);
     await _refreshPermission();
     AnalyticsService.instance.unsetUser();
     PushesService.instance.unsetUser();

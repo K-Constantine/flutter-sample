@@ -12,7 +12,7 @@ jobs:
         - |
           if [ ! -d "$HOME/flutter/bin" ]; then
             cd $HOME
-            git clone https://github.com/flutter/flutter.git --branch v1.10.7 --single-branch
+            git clone https://github.com/flutter/flutter.git --branch stable --single-branch
           fi
         - export PATH=$HOME/flutter/bin:$PATH
         - cd $TRAVIS_BUILD_DIR

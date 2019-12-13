@@ -1,5 +1,7 @@
 # Cíngulo Flutter Sample
 
+Working with Flutter 1.12.13+hotfix.5
+
 | Status    | develop                                                                                                                                                                    |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Travis CI | [![Build Status](https://travis-ci.com/cingulo/flutter-sample.svg?branch=develop)](https://travis-ci.com/cingulo/flutter-sample)                                           |

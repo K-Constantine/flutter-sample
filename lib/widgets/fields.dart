@@ -33,7 +33,7 @@ class TextInput extends TextFormField {
           focusNode: focusNode,
           onFieldSubmitted: onFieldSubmitted ?? (_) {},
           autofocus: autofocus,
-          maxLines: null,
+          maxLines: maxLines,
         );
 }
 
@@ -80,6 +80,7 @@ class _PasswordInputState extends State<PasswordInput> {
       enabled: widget.enabled,
       validator: widget.validator,
       obscureText: _obscure,
+      maxLines: 1,
       suffixIcon: IconButton(
         icon: Icon(
           _obscure ? Icons.visibility : Icons.visibility_off,

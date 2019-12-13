@@ -12,13 +12,13 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   analyzer: ^0.36.4
-  pedantic: ^1.7.0
-  package_info: ^0.4.0+10
+  pedantic: ^1.8.0+1
+  package_info: ^0.4.0+12
   fluro: ^1.5.1
-  rxdart: ^0.22.4
+  rxdart: ^0.22.6
   dio: ^3.0.7
-  flutter_secure_storage: ^3.3.1+1
-  url_launcher: ^5.2.7
+  shared_preferences: ^0.5.6
+  url_launcher: ^5.4.1
 
 dev_dependencies:
   flutter_test:
